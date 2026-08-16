@@ -20,9 +20,9 @@ export function Navbar({ copy, brand, locale, location }: NavbarProps) {
   const [activeSection, setActiveSection] = useState("top");
   const progressRef = useRef<HTMLSpanElement>(null);
   const links = [
-    { label: copy.about, href: "#about" },
     { label: copy.expertise, href: "#expertise" },
     { label: copy.services, href: "#services" },
+    { label: copy.about, href: "#about" },
     { label: copy.insights, href: "#insights" },
     { label: copy.contact, href: "#contact" },
   ];

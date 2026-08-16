@@ -105,7 +105,7 @@ Same editorial-row treatment as Expertise: date, headline, arrow, thin divider. 
 
 ### Contact (`#contact`)
 
-Large serif heading (*"Let's start a conversation."*), a minimal underline-style form (Name / Email / Message), and firm details (general enquiries, phone, Cairo office) laid out as plain labeled text — not in a boxed card.
+Large serif heading (*"Let's start a conversation."*), a minimal underline-style form (Name / Email / Message), and firm details (general enquiries, phone, office) laid out as plain labeled text — not in a boxed card.
 
 ### Footer
 

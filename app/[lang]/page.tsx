@@ -21,8 +21,9 @@ export default async function LocalizedHome({ params }: LocalizedPageProps) {
   const copy = getDictionary(lang);
   const forwardArrow = lang === "ar" ? "←" : "→";
   const footerLinks = [
-    { label: copy.nav.about, href: "#about" },
     { label: copy.nav.expertise, href: "#expertise" },
+    { label: copy.nav.services, href: "#services" },
+    { label: copy.nav.about, href: "#about" },
     { label: copy.nav.insights, href: "#insights" },
     { label: copy.nav.contact, href: "#contact" },
   ];

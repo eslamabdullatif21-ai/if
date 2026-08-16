@@ -66,7 +66,7 @@ export function Hero({ copy, locale }: HeroProps) {
           transition={{ duration: 0.7, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
         >
           <Image
-            src="/editorial/cairo-facade.jpg"
+            src="/editorial/geometric-facade.jpg"
             alt={copy.imageAlt}
             fill
             className="hero__photo"

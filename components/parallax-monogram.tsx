@@ -45,7 +45,7 @@ export function ParallaxMonogram({ copy }: ParallaxMonogramProps) {
   return (
     <section ref={sectionRef} className="motif" aria-label={copy.ariaLabel}>
       <Image
-        src="/editorial/cairo-arches.jpg"
+        src="/editorial/stone-arches.jpg"
         alt={copy.imageAlt}
         fill
         className="motif__photo"
