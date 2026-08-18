@@ -70,7 +70,7 @@ export function Hero({ copy, locale }: HeroProps) {
             alt={copy.imageAlt}
             fill
             className="hero__photo"
-            priority
+            preload
             sizes="(max-width: 900px) calc(100vw - 48px), 38vw"
           />
           <span className="hero__photo-wash" aria-hidden="true" />
@@ -80,7 +80,6 @@ export function Hero({ copy, locale }: HeroProps) {
             height={634}
             alt=""
             className="hero__photo-mark"
-            priority
             sizes="220px"
           />
           <figcaption>{copy.imageCaption}</figcaption>

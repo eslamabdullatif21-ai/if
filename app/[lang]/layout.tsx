@@ -33,8 +33,8 @@ export async function generateMetadata({
   return {
     title:
       lang === "ar"
-        ? "إسماعيل فكري وشركاه | رؤية للقرارات المعقّدة"
-        : "Ismail Fekri & Partners | Advisory with Perspective",
+        ? "إسماعيل فكري وشركاه | حلول مالية وقانونية وتطوير أعمال"
+        : "Ismail Fekri & Partners | Financial, Legal & Business Advisory",
     description: copy.hero.supporting,
   };
 }

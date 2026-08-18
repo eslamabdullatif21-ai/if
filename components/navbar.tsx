@@ -99,7 +99,6 @@ export function Navbar({ copy, brand, locale, location }: NavbarProps) {
               height={634}
               alt=""
               className="nav-brand__mark"
-              priority
             />
             <span className="nav-brand__name">
               <span>{brand.lineOne}</span>

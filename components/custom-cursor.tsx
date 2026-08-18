@@ -32,11 +32,24 @@ export function CustomCursor() {
       ring.dataset.visible = "false";
     };
 
-    const enterInteractive = () => {
+    const enterInteractive = (event: PointerEvent) => {
+      const interactive =
+        event.target instanceof Element
+          ? event.target.closest<HTMLElement>("a, button, input, textarea")
+          : null;
+
+      if (!interactive) return;
       ring.dataset.active = "true";
     };
 
-    const leaveInteractive = () => {
+    const leaveInteractive = (event: PointerEvent) => {
+      const interactive =
+        event.target instanceof Element
+          ? event.target.closest<HTMLElement>("a, button, input, textarea")
+          : null;
+
+      if (!interactive) return;
+      if (event.relatedTarget instanceof Node && interactive.contains(event.relatedTarget)) return;
       ring.dataset.active = "false";
     };
 
@@ -48,26 +61,18 @@ export function CustomCursor() {
       frame = requestAnimationFrame(render);
     };
 
-    const interactives = Array.from(
-      document.querySelectorAll<HTMLElement>("a, button, input, textarea"),
-    );
-
     document.addEventListener("pointermove", move);
     document.documentElement.addEventListener("pointerleave", leave);
-    interactives.forEach((element) => {
-      element.addEventListener("pointerenter", enterInteractive);
-      element.addEventListener("pointerleave", leaveInteractive);
-    });
+    document.addEventListener("pointerover", enterInteractive);
+    document.addEventListener("pointerout", leaveInteractive);
     frame = requestAnimationFrame(render);
 
     return () => {
       cancelAnimationFrame(frame);
       document.removeEventListener("pointermove", move);
       document.documentElement.removeEventListener("pointerleave", leave);
-      interactives.forEach((element) => {
-        element.removeEventListener("pointerenter", enterInteractive);
-        element.removeEventListener("pointerleave", leaveInteractive);
-      });
+      document.removeEventListener("pointerover", enterInteractive);
+      document.removeEventListener("pointerout", leaveInteractive);
       document.documentElement.classList.remove("custom-cursor-enabled");
     };
   }, []);

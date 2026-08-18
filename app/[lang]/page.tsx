@@ -171,11 +171,25 @@ export default async function LocalizedHome({ params }: LocalizedPageProps) {
               <Reveal delay={0.08} className="contact-details">
                 <div className="contact-detail">
                   <p>{copy.contact.general}</p>
-                  <span>{copy.contact.generalValue}</span>
+                  <a
+                    href={copy.contact.generalHref}
+                    className="contact-detail__link"
+                    dir="ltr"
+                    aria-label={`${copy.contact.general}: ${copy.contact.generalValue}`}
+                  >
+                    {copy.contact.generalValue}
+                  </a>
                 </div>
                 <div className="contact-detail">
                   <p>{copy.contact.telephone}</p>
-                  <span>{copy.contact.telephoneValue}</span>
+                  <a
+                    href={copy.contact.telephoneHref}
+                    className="contact-detail__link"
+                    dir="ltr"
+                    aria-label={`${copy.contact.telephone}: ${copy.contact.telephoneValue}`}
+                  >
+                    {copy.contact.telephoneValue}
+                  </a>
                 </div>
                 <div className="contact-detail">
                   <p>{copy.contact.office}</p>
