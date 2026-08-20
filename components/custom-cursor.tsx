@@ -7,11 +7,12 @@ export function CustomCursor() {
 
   useEffect(() => {
     const finePointer = window.matchMedia("(pointer: fine)").matches;
+    const hasHover = window.matchMedia("(hover: hover)").matches;
     const reduceMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
-    if (!finePointer || reduceMotion || !ringRef.current) return;
+    if (!finePointer || !hasHover || reduceMotion || !ringRef.current) return;
 
     const ring = ringRef.current;
     let targetX = window.innerWidth / 2;

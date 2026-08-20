@@ -99,6 +99,8 @@ export function Navbar({ copy, brand, locale, location }: NavbarProps) {
               height={634}
               alt=""
               className="nav-brand__mark"
+              sizes="78px"
+              quality={90}
             />
             <span className="nav-brand__name">
               <span>{brand.lineOne}</span>

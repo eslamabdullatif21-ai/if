@@ -252,13 +252,13 @@ export default async function LocalizedHome({ params }: LocalizedPageProps) {
 
         <div className="site-shell footer__credits">
           <span>{copy.footer.photoCredit}:</span>
-          <a href="https://www.pexels.com/photo/monumental-concrete-facade-26964134/" target="_blank" rel="noreferrer">
+          <a href="https://www.pexels.com/photo/monumental-concrete-facade-26964134/" target="_blank" rel="noreferrer" lang="en">
             Omar Elsharawy / Pexels
           </a>
-          <a href="https://unsplash.com/photos/A-13PmQkP1o" target="_blank" rel="noreferrer">
+          <a href="https://unsplash.com/photos/A-13PmQkP1o" target="_blank" rel="noreferrer" lang="en">
             Sebastian Schuster / Unsplash
           </a>
-          <a href="https://www.pexels.com/photo/17553092/" target="_blank" rel="noreferrer">
+          <a href="https://www.pexels.com/photo/17553092/" target="_blank" rel="noreferrer" lang="en">
             Youmna Badr / Pexels
           </a>
         </div>

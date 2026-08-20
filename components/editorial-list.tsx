@@ -23,6 +23,7 @@ export function EditorialList({
     <div className={"editorial-list editorial-list--" + variant}>
       {items.map((item, index) => {
         const isActive = active === index;
+        const descriptionId = `${variant}-desc-${index}`;
         return (
           <motion.div
             key={item.title}
@@ -44,6 +45,7 @@ export function EditorialList({
               onClick={() => setActive(isActive ? null : index)}
               onFocus={() => setActive(index)}
               aria-expanded={isActive}
+              aria-controls={descriptionId}
             >
               <span className="editorial-row__meta">
                 {variant === "expertise"
@@ -55,6 +57,8 @@ export function EditorialList({
                 <AnimatePresence initial={false}>
                   {isActive && (
                     <motion.span
+                      id={descriptionId}
+                      role="region"
                       className="editorial-row__description"
                       initial={{ height: 0, opacity: 0, y: 6 }}
                       animate={{ height: "auto", opacity: 1, y: 0 }}

@@ -30,12 +30,52 @@ export async function generateMetadata({
   if (!hasLocale(lang)) return {};
   const copy = getDictionary(lang);
 
+  const title =
+    lang === "ar"
+      ? "إسماعيل فكري وشركاه | حلول مالية وقانونية وتطوير أعمال"
+      : "Ismail Fekri & Partners | Financial, Legal & Business Advisory";
+
+  const description = copy.hero.supporting;
+
   return {
-    title:
+    metadataBase: new URL("https://if-sepia.vercel.app"),
+    title,
+    description,
+    keywords:
       lang === "ar"
-        ? "إسماعيل فكري وشركاه | حلول مالية وقانونية وتطوير أعمال"
-        : "Ismail Fekri & Partners | Financial, Legal & Business Advisory",
-    description: copy.hero.supporting,
+        ? "استشارات مالية, استشارات قانونية, تطوير أعمال, ضرائب, إعادة هيكلة, تحكيم تجاري, مصر, الإمارات"
+        : "financial advisory, legal counsel, business development, tax strategy, restructuring, commercial arbitration, Egypt, UAE",
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
+    },
+    alternates: {
+      canonical: `/${lang}`,
+      languages: {
+        en: "/en",
+        ar: "/ar",
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `/${lang}`,
+      siteName: "Ismail Fekri & Partners",
+      locale: lang === "ar" ? "ar_EG" : "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
   };
 }
 
@@ -52,9 +92,14 @@ export default async function LocaleLayout({
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
 
+  const skipLabel = lang === "ar" ? "انتقل إلى المحتوى الرئيسي" : "Skip to main content";
+
   return (
     <html lang={lang} dir={lang === "ar" ? "rtl" : "ltr"}>
       <body>
+        <a href="#top" className="skip-link">
+          {skipLabel}
+        </a>
         <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
